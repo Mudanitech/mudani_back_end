@@ -1,0 +1,337 @@
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+        
+        .template h2 {
+        font-size: 18px;
+        font-weight: 400;
+        padding-bottom: 15px;
+        }
+        
+        .template h2.head {
+        font-weight: 400;
+        ;
+        }
+        
+        .template h2.main {
+        font-weight: 500;
+        }
+        
+        body {
+        padding: 50px;
+        
+        }
+        
+        .center {
+        text-align: center;
+        }
+        
+        li {
+        text-decoration: none;
+        list-style-type: none;
+        padding-bottom: 15px;
+        }
+        
+        .allStock h2 {
+        font-size: 16px;
+        padding-bottom: 10px;
+        }
+        .allStock p{
+        font-size: 16px;
+        font-weight: 400;
+        }
+        .claimBtn a{
+        font-size:20px;
+        color: #fff;
+        background: #0091DA;
+        padding:10px 35px;
+        border-radius: 10px;
+        display: inline-block;
+        }
+        a:hover{
+        text-decoration: none;
+        }
+        .claimBtn{
+        padding:25px 0px;
+        text-align:center;
+        }
+        .faq h2{
+        padding-bottom: 0px;
+        }
+        .faq{
+        padding-top: 10px;
+        }
+        p{
+        font-weight: 300;
+        }
+        ul.none{
+        display: none;
+        }
+        .indexleftLow ul li {
+        display: inline-block;
+        margin-right: 15px;
+        }
+        .indexleftLow ul li a {
+        display: block;
+        width: 125px;
+        }
+        .indexleftLow ul li a img {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        }
+        
+        .offeriMG.center img{
+        width: 100%;
+        }
+        
+        @media screen and (max-width: 700px) and (min-width: 200px) {
+        
+        ul.none{
+        display: block;
+        padding: 0;
+        }
+        .claimBtn a{
+        display: none;
+        }
+        .claimBtn a{
+        padding: 0;
+        }
+        .indexleftLow ul li{
+        margin-bottom: 0;
+        margin-bottom: 0;
+        padding: 0;
+        }
+        body{
+        padding: 25px;
+        }
+        }
+        </style>
+</head> -->
+
+<head>
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+        body{ margin: 0; font-family: 'Roboto'; }
+
+        .FreeStock li{ list-style: disc; }
+        .FreeStock li span{ display: block; } 
+        .StarBox article{ display: flex; margin: 25px 0 0 0;}
+        .StarBox article aside{ position: relative; padding: 0 10px 0 25px;}
+        .StarBox article aside span{ position: absolute; left: 0;}
+        .StarBox article aside h3{margin: 0 0 10px 0; font-size: 17px; font-weight: 600;}
+        .StarBox article aside p{margin: 0; font-size: 15px; font-weight: 400; line-height: 24px;}
+
+    </style>
+
+</head>
+
+
+
+<body > 
+
+    <div style="background-color: #f5f5f5; padding: 50px;">
+        <div style=" background-color: #fff; max-width: 750px; margin: auto; padding: 20px;">
+            <figure style=" margin: 0;">
+                <img src="https://icontractor1.s3.amazonaws.com/icons.png" style="width: 100%">
+            </figure>
+
+            <h1 style="margin: 0 0 15px 0; font-size: 15px; font-weight: 500;">
+                You know what’s better than gifts? <i>A gift that could grow in value.</i>
+            </h1>
+
+            <h2 style="margin: 0 0 15px 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px; color: #000;">
+                <%=result.yourName%> sent you a free stock!
+            </h2>
+
+            <h3 style="margin: 0 0 15px 0; font-size: 15px; font-weight: 500;">
+                Get up to $100 worth of a free stock to start building your portfolio when you open a Mudani account.
+            </h3>
+
+            <h4 style="margin: 0 0 10px 0; font-size: 17px; font-weight: 600;">
+                Here’s the deets:
+            </h4>
+
+            <ul class="FreeStock" style="margin:0 0 10px 0">
+                <li style=" margin: 0 0 10px 0; font-size: 15px; font-weight: 400; line-height: 24px;">
+                    <span>100% chance of getting a free stock</span>
+                    <span>All you gotta do is sign up! A free stock will appear in your account.</span>
+                    <span><i>*Certain limitations apply</i></span>
+                </li>
+
+                 <li style=" margin: 0 0 10px 0; font-size: 15px; font-weight: 400; line-height: 24px;">
+                    <span>No funding needed </span>
+                    <span>You don’t need to fund your account or have money in your account to receive free stock</span>
+                </li>
+
+                 <li style=" margin: 0 0 10px 0; font-size: 15px; font-weight: 400; line-height: 24px;">
+                    <span>You could get up to</span>
+                </li>
+
+                 <li style=" margin: 0 0 10px 0; font-size: 15px; font-weight: 400; line-height: 24px;">
+                    <span>You’ll see your free stock within 30 days</span>
+                </li>
+
+            </ul>
+
+            <div class="StarBox">
+                <article>
+                    <aside>
+                        <span><i class="fa fa-arrow-right"></i></span>
+                        <h3>100% chance of getting a free stock</h3>
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print.</p>
+                    </aside>
+                    <aside>
+                        <span><i class="fa fa-arrow-right"></i></span>
+                        <h3>100% chance of getting a free stock</h3>
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print.</p>
+                    </aside>
+                </article>
+                <article>
+                    <aside>
+                        <span><i class="fa fa-arrow-right"></i></span>
+                        <h3>100% chance of getting a free stock</h3>
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print.</p>
+                    </aside>
+                    <aside>
+                        <span><i class="fa fa-arrow-right"></i></span>
+                        <h3>100% chance of getting a free stock</h3>
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print.</p>
+                    </aside> 
+                </article>
+            </div>
+
+            <p style="text-align: center; margin: 30px 0 20px 0px;">
+                <a href="<%= url%>" target="_blank" style="font-size: 16px; color: #fff; background: #4992db; font-family: var(--bold); border-radius: 50px; text-transform: uppercase; text-align: center; text-decoration: none; display: inline-block; padding: 15px 50px;">
+                    Claim your free stock now
+                </a>
+            </p>
+
+            <p style="margin: 0; font-size: 15px; font-weight: 400; line-height: 24px; text-align: center;">
+                * Disclosures in the bottom
+            </p>
+
+            <h4 style=" margin: 15px 0 15px 0; font-size: 17px; font-weight: 500; line-height: 27px; ">
+                Hey! I’m using Mudani – an all-in-one app for the everyday retail investor. Open your account now (no money needed) and we’ll both get a free stock
+            </h4>
+
+            <h2>FAQ</h2>
+
+            <p style="margin: 0 0 20px; font-size: 15px; font-weight: 400; line-height: 28px;">
+                <span style="font-weight: 600;">Ques 1 : </span>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+
+            <p style="margin: 0 0 20px; font-size: 15px; font-weight: 400; line-height: 28px;">
+                <span style="font-weight: 600;">Ques 2 : </span>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+
+            <p style="margin: 0 0 0px; font-size: 15px; font-weight: 400; line-height: 28px;">
+                <span style="font-weight: 600;">Ques 3 : </span>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p> 
+
+
+        </div>
+    </div>
+ 
+
+     
+</body>
+<!-- <body class="colorPink">
+    <section class="template">
+        <h2 class="center">Refer a friend – Design for email & text</h2>
+        <h2 class="main center">EMAIL</h2>
+        <div class="offeriMG center">
+        <img src="https://icontractor1.s3.amazonaws.com/icons.png" alt="icon">
+        </div>
+        <h2>You know what’s better than gifts? A gift that could grow in value. </h2>
+        <h2 class="main"><span><%=result.yourName%></span> sent you a free stock! </h2>
+        <h2>Get up to $100 worth of a free stock to start building your portfolio when you open a Mudani account. </h2>
+        <h2>Here’s the deets:</h2>
+        <ul>
+        <li>- 100% chance of getting a free stock <br>All you gotta do is sign up! A free stock will appear in your
+        account.
+        *Certain limitations apply
+        </li>
+        <li>- No funding needed <br>You don’t need to fund your account or have money in your account to receive
+        free stock</li>
+        <li>- You could get up to ___</li>
+        <li>- You’ll see your free stock within 30 days</li>
+        </ul>
+        <div class="row">
+        <div class="col-sm-3">
+        <div class="allStock">
+        <h2 class="main">100% chance of getting a free stock </h2>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+        or web designs. The passage is attributed to an unknown typesetter in the 15th century </p>
+        </div>
+        </div>
+        <div class="col-sm-3">
+        <div class="allStock">
+        <h2 class="main">100% chance of getting a free stock </h2>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+        or web designs. The passage is attributed to an unknown typesetter in the 15th century </p>
+        </div>
+        </div>
+        <div class="col-sm-3">
+        <div class="allStock">
+        <h2 class="main">100% chance of getting a free stock </h2>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+        or web designs. The passage is attributed to an unknown typesetter in the 15th century </p>
+        </div>
+        </div>
+        <div class="col-sm-3">
+        <div class="allStock">
+        <h2 class="main">100% chance of getting a free stock </h2>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+        or web designs. The passage is attributed to an unknown typesetter in the 15th century </p>
+        </div>
+        </div>
+        </div>
+        <div class="claimBtn">
+        <a href="<%= url%>" target="_blank" class="mob">Text Me The App</a>
+        <div class="indexleftLow ">
+        <ul class="none">
+        <li>
+        <a href="https://play.google.com/store">
+        <img src="https://icontractor1.s3.amazonaws.com/playstore.jpg" alt="play">
+        </a>
+        </li>
+        <li>
+        <a href="https://www.apple.com/in/app-store/">
+        <img src="https://icontractor1.s3.amazonaws.com/apple.jpg" alt="app">
+        </a>
+        </li>
+        
+        </ul>
+        </div>
+        
+        </div>
+        <h2>Hey! I’m using Mudani – an all-in-one app for the everyday retail investor. Open your account now (no money needed) and we’ll both get a free stock </h2>
+        
+        
+        
+        <h2 class="center main">FAQ</h2>
+        <div class="faq">
+        <h2 class="main">1</h2>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
+        <div class="faq">
+        <h2 class="main">2</h2>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
+        <div class="faq">
+        <h2 class="main">3</h2>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
+        </section>
+</body> -->
+
+</html>
