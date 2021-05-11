@@ -45,6 +45,33 @@ const sendEmail = (from, to, subject, html) => {
     })
 }
 
+const sendEmail333 = (receiverEmailId, subject, html) => {
+    const transporter = nodemailer.createTransport({
+        service: config.get('mailserverhost'),
+        auth: {
+            user: config.get('mailserverid'),
+            pass: config.get('mailserverpassword'),
+        }
+    })
+    let mailOptions = {
+        from: config.get('mailserverid'),
+        to: 'vsaini12381@gmail.com',
+        subject,
+        html,
+    }
+    return new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, function (err, info) {
+            if (err) {
+                console.log('err', err)
+                reject(err);
+            } else {
+                console.log('info', info)
+                resolve(info);
+            }
+        })
+    })
+}
+
 module.exports = {
     sendEmail
 }

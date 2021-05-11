@@ -1,17 +1,16 @@
 var mongoose = require('mongoose');
-var Questionnaires = mongoose.Schema({
-    title: {
+var Mobileverification = mongoose.Schema({
+    countryCode: {
         type: String,
         trim: true
     },
-    description: {
+    mobileNo: {
         type: String,
         trim: true
     },
-    portfolio: {
-        type: Array,
-        trim: true,
-        default: []
+    otp: {
+        type: String,
+        trim: true
     },
     status: {                       // 1=Verified Account ,2=Blocked By Admin 
         type: Number,
@@ -21,4 +20,4 @@ var Questionnaires = mongoose.Schema({
 }, {
     timestamps: true
 })
-module.exports = mongoose.model('questionnaires', Questionnaires);
+module.exports = mongoose.model('mobileverifications', Mobileverification);

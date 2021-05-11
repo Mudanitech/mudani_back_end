@@ -86,6 +86,30 @@ const createForm = async (req, res) => {
         // return response.responseHandlerWithData(res, 500, "Internal Server Error");
     }
 }
+const getOrbisApplicationStatus = async (userData, appId) => {
+    try {
+
+        let jsonBody = JSON.stringify({
+            "with": [
+                "current_custodian_request.investigations.cip_categories.requested_documents",
+                "current_custodian_request.statuses"
+            ],
+            "application_id": appId
+        });
+        let orbisApi = await fetch(config.orbisBaseUrl + "api/applications/get", {
+            method: "post",
+            body: jsonBody,
+            headers: { "Content-Type": "application/json", "Authorization": "bearer " + userData.orbisToken },
+        })
+            .then((res) => res.json());
+        return orbisApi;
+
+
+    } catch (error) {
+        response.log("admin login error is=========>", error);
+        // return response.responseHandlerWithData(res, 500, "Internal Server Error");
+    }
+}
 
 const getForm = async (req, res) => {
     try {
@@ -253,6 +277,7 @@ module.exports = {
     generateJWT,
     registerUser,
     createForm,
+    getOrbisApplicationStatus,
     getForm,
     createApplication,
     giveMultipleAnswer,

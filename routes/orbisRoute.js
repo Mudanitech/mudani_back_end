@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const orbisController = require('../controllers/user/orbisController');
+const orbisController = require('../controllers/orbis/orbisController');
 
 
 
-router.post('/createJws', orbisController.createJws);
+// router.post('/getModels', orbisController.getModels);
 
 
 module.exports = router;

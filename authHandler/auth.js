@@ -46,16 +46,13 @@ module.exports = {
                 response.log("Token is missing")
                 return response.responseHandlerWithMessage(res, 401, "Something went wrong");
             }
-
-            jwt.verify(req.headers.authorization, config.jwtSecretKey, async (error, result) => {
+            jwt.verify(req.headers.authorization, config.jwtSecretKeyApp, async (error, result) => {
                 if (error) {
                     response.log("Invalid Token1")
                     return response.responseHandlerWithMessage(res, 401, "Invalid Token");
                 }
-
                 console.log({ result })
                 let query = { $and: [{ _id: result._id }, { jwtToken: req.headers.authorization }] }
-                return response.responseHandlerWithMessage(res, result, "Something went wrong");
                 let checkUser = await User.findOne(query)
                 if (!checkUser) {
                     response.log("Invalid Token2")

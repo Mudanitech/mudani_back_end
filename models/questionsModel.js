@@ -14,6 +14,11 @@ var Questions = mongoose.Schema({
         trim: true,
         default: 1
     },
+    sort: {                       // 1=Verified Account ,2=Blocked By Admin 
+        type: Number,
+        trim: true,
+        default: 0
+    },
 }, {
     timestamps: true
 })

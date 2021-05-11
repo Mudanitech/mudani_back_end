@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema
 var User = mongoose.Schema({
     email: {
         type: String,
@@ -60,6 +61,11 @@ var User = mongoose.Schema({
         trim: true,
         default: 1
     },
+    profileUpdated: {           // 1=profile updated
+        type: Number,
+        trim: true,
+        default: 0
+    },
     timezone: {
         type: String,
         trim: true
@@ -73,6 +79,61 @@ var User = mongoose.Schema({
         trim: true,
         default: 0
     },
+    applicationId: {
+        type: Number,
+        trim: true,
+        default: 0
+    },
+    userBasket: {
+        type: Array,
+        trim: true,
+        default: 0
+    },
+    // userPortfolio: {
+    //     type: Array,
+    //     trim: true,
+    //     default: 0
+    // },
+    portfolioId: {
+        type: Schema.Types.ObjectId,
+        ref: 'portfolio'
+    },
+    planId: {
+        type: Schema.Types.ObjectId,
+        ref: 'portfolio'
+    },
+    thematic: {
+        type: Array,
+        ref: 'portfolio'
+    },
+    jwtToken: {
+        type: String,
+        trim: true
+    },
+    ssn: {
+        type: String,
+        trim: true
+    },
+    dob: {
+        type: String,
+        trim: true
+    },
+    address1: {
+        type: String,
+        trim: true
+    },
+    address2: {
+        type: String,
+        trim: true
+    },
+    zipcode: {
+        type: String,
+        trim: true
+    },
+    state: {
+        type: String,
+        trim: true
+    }
 }, {
     timestamps: true
 })

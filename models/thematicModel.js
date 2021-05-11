@@ -1,5 +1,10 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema
 var Thematic = mongoose.Schema({
+    modelId: {
+        type: Schema.Types.ObjectId,
+        ref: 'model'
+    },
     thematicName: {
         type: String,
         trim: true,
@@ -16,10 +21,10 @@ var Thematic = mongoose.Schema({
         require: true
     },
     thematicStatus: {
-        type: Boolean,
+        type: Number,
         trim: true,
-        default: true
-    },
+        default: 1
+    }
 }, {
     timestamps: true
 })
