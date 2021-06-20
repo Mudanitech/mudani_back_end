@@ -10,6 +10,12 @@ var Thematic = mongoose.Schema({
         trim: true,
         require: true
     },
+    price: {
+        type: Number,
+        trim: true,
+        require: true,
+        default: 3
+    },
     thematicDescription: {
         type: String,
         trim: true,

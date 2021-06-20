@@ -260,8 +260,18 @@ const deletePortfolio = async (req, res) => {
 
 const questionnaireList = async (req, res) => {
     try {
-        let result = await Questionnaire.find({ status: 1 })
+        let result = await Questionnaire.find({ $or: [{ "status": 1 }, { "status": 2 }] })
         response.responseHandlerWithData(res, 200, "Questionnaire List", result);
+    } catch (error) {
+        response.log("admin login error is=========>", error);
+        return response.responseHandlerWithData(res, 500, "Internal Server Error");
+    }
+}
+const enableQuestionare = async (req, res) => {
+    try {
+        await Questionnaire.updateOne({ status: 1 }, { $set: { status: 2 } }, { new: true })
+        await Questionnaire.findByIdAndUpdate({ _id: req.body.questionnaireId }, { $set: { status: 1 } }, { new: true })
+        response.responseHandlerWithMessage(res, 200, "Success");
     } catch (error) {
         response.log("admin login error is=========>", error);
         return response.responseHandlerWithData(res, 500, "Internal Server Error");
@@ -388,14 +398,14 @@ const addTicker = async (req, res) => {
             tickerImage: Joi.string().required(),
             symbol: Joi.string().required(),
             companyName: Joi.string().required(),
-            isin: Joi.string().required(),
-            cusip: Joi.string().required(),
-            country: Joi.string().required(),
-            mic: Joi.string().required(),
-            currency: Joi.string().required(),
-            source: Joi.string().required(),
-            identType: Joi.string().required(),
-            exchange: Joi.string().required(),
+            isin: Joi.string(),
+            cusip: Joi.string(),
+            country: Joi.string(),
+            mic: Joi.string(),
+            currency: Joi.string(),
+            source: Joi.string(),
+            identType: Joi.string(),
+            exchange: Joi.string(),
         })
 
         const { error } = await schema.validate(req.body);
@@ -458,6 +468,7 @@ module.exports = {
     addQuestion,
     addQuestionnaire,
     questionnaireList,
+    enableQuestionare,
     deleteQuestionnaire,
     getQuestionaireDetail,
     getQuestionairePortfolio,

@@ -81,8 +81,8 @@ const getOrbisModels = async (req, res) => {
     try {
         const token = await createOrbisToken();
         console.log('CreatedToken', token)
-        let getModels = await fetch("https://wrh.orbisfn.net/api/v2/advisory/models", {
-            // let getModels = await fetch("https://wrh.orbisfn.net/api/v2/advisory/model/portfolios/1109", {
+        // let getModels = await fetch("https://wrh.orbisfn.net/api/v2/advisory/models", {
+        let getModels = await fetch("https://wrh.orbisfn.net/api/v2/advisory/model/portfolios/1109", {
             // let getModels = await fetch("api/v2/advisory/model/position/equity/1109?GOOGL", {
             method: "get",
             headers: { "Content-Type": "application/json", Authorization: 'C2C ' + Buffer.from(token).toString('base64') },
@@ -132,7 +132,28 @@ const getOrbisTicker = async (req, res) => {
         const token = await createOrbisToken();
         console.log('CreatedToken', token)
 
-        let getModels = await fetch("https://wrh.orbisfn.net/api/quotes/equity?symbols=" + req.body.ticker, {
+
+        // let getModels = await fetch("https://wrh.orbisfn.net/api/quotes/equity?symbols=" + req.body.ticker, {
+
+        let getModels = await fetch(APP_ORBIS_URL + "quotes/search?criteria=" + req.body.ticker + '&limit=1', {
+            method: "get",
+            headers: { "Content-Type": "application/json", Authorization: 'C2C ' + Buffer.from(token).toString('base64') },
+        })
+            .then((res) => res.json());
+        console.log('getModels', Buffer.from(token).toString('base64'))
+        return getModels;
+        return response.responseHandlerWithData(res, 200, "Models List", getModels);
+    } catch (error) {
+        response.log("Login error is=========>", error);
+        return response.responseHandlerWithData(res, 500, "Internal Server Error");
+    }
+}
+const getOrbisTickerByOption = async (req, res) => {
+    try {
+        const token = await createOrbisToken();
+        console.log('CreatedToken', token)
+
+        let getModels = await fetch(APP_ORBIS_URL + "quotes/search?criteria=" + req.body.ticker + '&limit=10', {
             method: "get",
             headers: { "Content-Type": "application/json", Authorization: 'C2C ' + Buffer.from(token).toString('base64') },
         })
@@ -164,11 +185,27 @@ const getAllNewsList = async (req, res) => {
     }
 }
 
-const getNewsListBySymbol = async (req) => {
+const getNewsListBySymbol = async (req, res) => {
     try {
         const token = await createOrbisToken();
-        // console.log('CreatedToken', token)
-        let getModels = await fetch(APP_ORBIS_URL + "research/news/ticker/" + req, {
+        console.log('CreatedToken', token)
+        let getModels = await fetch(APP_ORBIS_URL + "research/news/sec/" + req, {
+            method: "get",
+            headers: { "Content-Type": "application/json", Authorization: 'C2C ' + Buffer.from(token).toString('base64') },
+        })
+            .then((res) => res.json());
+        console.log('getModelsgetModelsgetModels', getModels)
+        return getModels;
+    } catch (error) {
+        response.log("Login error is=========>", error);
+        return response.responseHandlerWithData(res, 201, "News Not Found");
+    }
+}
+const getOrbisNewsDetail = async (req) => {
+    try {
+        const token = await createOrbisToken();
+        console.log('CreatedToken', token)
+        let getModels = await fetch(APP_ORBIS_URL + "research/news/" + req, {
             method: "get",
             headers: { "Content-Type": "application/json", Authorization: 'C2C ' + Buffer.from(token).toString('base64') },
         })
@@ -198,8 +235,9 @@ const getOrbisTopStockList = async (req) => {
         return response.responseHandlerWithData(res, 500, "Internal Server Error");
     }
 }
-const getOrbisStockImage = async (symbol) => {
+const getOrbisStockImage = async (symbol, res) => {
     try {
+        console.log('999999999999999', symbol)
         const token = await createOrbisToken();
         // console.log('CreatedToken', token)
         let getModels = await fetch(APP_ORBIS_TICKER_LOGO + "symbol/" + symbol, {
@@ -208,6 +246,7 @@ const getOrbisStockImage = async (symbol) => {
         })
             .then((res) => res.json());
 
+        console.log('getModelsgetModelsgetModels', getModels)
         return getModels;
         return response.responseHandlerWithData(res, 200, "News List", getModels);
     } catch (error) {
@@ -299,8 +338,10 @@ const orbisStockPlacement = async (req, res) => {
 module.exports = {
     getOrbisModels,
     getOrbisTicker,
+    getOrbisTickerByOption,
     getAllNewsList,
     getNewsListBySymbol,
+    getOrbisNewsDetail,
     getOrbisTopStockList,
     getOrbisStockImage,
     orbisStockPlacement,

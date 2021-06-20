@@ -142,8 +142,21 @@ const deleteModel = async (req, res) => {
 
 const getOrbisTicker = async (req, res) => {
     try {
-        let newsList = await orbisControllerRequest.getOrbisTicker(req);
-        response.responseHandlerWithData(res, 200, "Ticker List", newsList);
+        let getOrbisTicker = await orbisControllerRequest.getOrbisTicker(req);
+        if (!getOrbisTicker[0]) {
+            response.responseHandlerWithMessage(res, 201, "Ticker not available");
+        }
+        console.log('getOrbisTickergetOrbisTicker', getOrbisTicker[0].symbol)
+        let ticketData = await orbisControllerRequest.getOrbisStockImage(getOrbisTicker[0].symbol);
+        if (ticketData.logo_square) {
+            console.log('ticketData', ticketData)
+            getOrbisTicker['ticker_image'] = ticketData.logo_square
+        } else {
+            console.log('ticketData', ticketData)
+            getOrbisTicker['ticker_image'] = ""
+        }
+
+        response.responseHandlerWithData2(res, 200, "Ticker List", getOrbisTicker, ticketData);
 
     } catch (error) {
         response.log("admin login error is=========>", error);

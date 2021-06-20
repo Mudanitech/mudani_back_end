@@ -17,6 +17,7 @@
     "ejs": "^3.1.6",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
+    "fcm-node": "^1.6.1",
     "file-system": "^2.2.2",
     "got": "^11.8.2",
     "ini": "^2.0.0",

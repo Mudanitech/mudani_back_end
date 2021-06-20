@@ -17,6 +17,7 @@ router.post('/resetPassword', userController.resetPassword);
 router.post('/createOtp', userController.createOtp);
 router.post('/verifyOtp', userController.verifyOtp);
 router.post('/changePassword', userController.changePassword);
+router.get('/deleteUser/:countryCode/:mobile', userController.deleteUser);
 
 // router.use(authHandler.appAuth);
 
@@ -46,7 +47,7 @@ router.post('/getAccessToken', userController.getAccessToken);
 router.post('/createJws', userController.createJws);
 
 router.get('/userDashboard/:id', userController.userDashboard);
-router.get('/getMyPlans/:id', userController.getMyPlans);
+router.get('/getMyPlans/:id/:type', userController.getMyPlans);
 router.get('/getMyPortfolio/:id', userController.getMyPortfolio);
 router.get('/getMyAccountInfo/:id', userController.getMyAccountInfo);
 router.post('/updateAccountInfo', userController.updateAccountInfo);
@@ -56,6 +57,7 @@ router.post('/cancelBasket', userController.cancelBasket);
 
 router.get('/getNewsList', userController.getNewsList);
 router.get('/getNewsListBySymbol/:symbol', userController.getNewsListBySymbol);
+router.get('/getNewsDetail/:newsId', userController.getNewsDetail);
 router.post('/tickerDetail', userController.tickerDetail);
 router.get('/getTopStockList', userController.getTopStockList);
 router.get('/getStockImage/:symbol', userController.getStockImage);
@@ -65,6 +67,15 @@ router.post('/getHistoricalData', userController.getHistoricalData);
 
 router.post('/stockPlacement', userController.stockPlacement);
 router.post('/profileMarkAsUpdate', userController.profileMarkAsUpdate);
+router.post('/getWheelStock', userController.getWheelStock);
+router.post('/updateScreenStatue', userController.updateScreenStatue);
+router.post('/updateJourneyStatus', userController.updateJourneyStatus);
+
+router.get('/userNotification/:id', userController.userNotification);
+router.get('/seenNotification/:id', userController.seenNotification);
+router.post('/createPin', userController.createPin);
+router.post('/loginByPin', userController.loginByPin);
+router.post('/basketByExecution', userController.basketByExecution);
 
 
 

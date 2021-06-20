@@ -56,6 +56,11 @@ var User = mongoose.Schema({
         type: String,
         trim: true
     },
+    pin: {                       // 1=Verified Account ,2=Blocked By Admin 
+        type: String,
+        trim: true,
+        default: 0
+    },
     status: {                       // 1=Verified Account ,2=Blocked By Admin 
         type: Number,
         trim: true,
@@ -86,8 +91,7 @@ var User = mongoose.Schema({
     },
     userBasket: {
         type: Array,
-        trim: true,
-        default: 0
+        trim: true
     },
     // userPortfolio: {
     //     type: Array,
@@ -133,6 +137,31 @@ var User = mongoose.Schema({
     state: {
         type: String,
         trim: true
+    },
+    wheelStock: {
+        type: String,
+        trim: true,
+        default: ""
+    },
+    screen: {
+        type: String,
+        trim: true,
+        default: "initial_state"
+    },
+    mudaniRoboUpdated: {
+        type: Number,
+        trim: true,
+        default: 0
+    },
+    mudaniInvestUpdated: {
+        type: Number,
+        trim: true,
+        default: 0
+    },
+    dualUpdated: {
+        type: Number,
+        trim: true,
+        default: 0
     }
 }, {
     timestamps: true

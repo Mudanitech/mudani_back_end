@@ -6,6 +6,11 @@ const client = new plaid.Client({
     secret: "421b61ce12b0ec852f26c2607076d6",
     env: plaid.environments.sandbox
 });
+// const client = new plaid.Client({
+//     clientID: "5f739c452412370011fa2fdd",
+//     secret: "c492535498b2a1602e804b4a51cdfa",
+//     env: plaid.environments.development
+// });
 
 
 

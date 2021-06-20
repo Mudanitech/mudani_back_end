@@ -49,6 +49,7 @@ router.post('/editPortfolio', portfolioController.editPortfolio);
 router.post('/addQuestionnaire', questionnaireController.addQuestionnaire);
 router.post('/editQuestionnaire', questionnaireController.editQuestionnaire);
 router.get('/questionnaireList', questionnaireController.questionnaireList);
+router.post('/enableQuestionare', questionnaireController.enableQuestionare);
 router.delete('/deleteQuestionnaire/:id', questionnaireController.deleteQuestionnaire);
 router.get('/getQuestionaireDetail/:id', questionnaireController.getQuestionaireDetail);
 router.get('/getQuestionairePortfolio/:id', questionnaireController.getQuestionairePortfolio);

@@ -33,10 +33,10 @@ const generateJWT = async (req, res) => {
 const registerUser = async (req, res) => {
     try {
         let branchId = 0;
-        if (req.interestedAccount == 1) {
+        if (req.interestedAccount == 49) {
             branchId = 47;        //self direct account
         } else {
-            branchId = 48;        //managed account
+            branchId = req.interestedAccount;        //managed account
         }
         let jsonBody = JSON.stringify({
             "role": "applicant",
