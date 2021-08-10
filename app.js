@@ -61,8 +61,10 @@ app.use('/api/v1/admin', route);
 app.use('/api/v1/user', userRoute);
 app.use('/api/v1/orbis', orbisRoute);
 
-app.listen(3005, () => {
-    console.log(`App listening on port 3005`);
+
+const port  = 3001
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
 })
 
 const httpsOptions = {
